@@ -1,7 +1,10 @@
+import java.util.Random;
+
 public class HomeWorkApp {
     public static void main(String[] args) {
         printThreeWords();
         checkSumSign();
+        printColor();
         compareNumbers();
     }
 
@@ -23,5 +26,16 @@ public class HomeWorkApp {
             System.out.println("a >= b");
         else
             System.out.println("a < b");
+    }
+
+    static void printColor(){
+        Random random = new Random();
+        int value = random.nextInt(-200, 201);
+        if (value <= 0)
+            System.out.println("Красный");
+        else if (value <= 100)
+            System.out.println("Желтый");
+        else
+            System.out.println("Зелёный");
     }
 }
