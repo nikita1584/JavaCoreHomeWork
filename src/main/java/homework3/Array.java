@@ -36,7 +36,7 @@ public class Array {
             n = -n;
         }
 
-        //bad deci
+        //bad decision :(
         for (int k = 0; k < n; k++) {
             newIndex = 1;
             for (int i = 0; newIndex < intArr.length; i++, newIndex++) {
@@ -47,6 +47,7 @@ public class Array {
         }
         System.out.println(Arrays.toString(intArr));
     }
+
     private static boolean Task7() {
         System.out.println("=== Task 6, checkBalance ===");
         int []intArr = new int[] {2, 2, 2, 1, 2, 2, 10, 1};
@@ -131,5 +132,4 @@ public class Array {
             intArr[i] = (intArr[i] == 1)? 0 : 1;
         System.out.println(Arrays.toString(intArr));
     }
-
 }
