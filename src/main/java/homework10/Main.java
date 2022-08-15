@@ -84,7 +84,7 @@ public class Main {
                 + orangeBox2.getWeight());
 
         System.out.println("Пересыпаем все апельсины и коробки 1 в 2");
-        orangeBox2.Move(orangeBox1);
+        orangeBox2.MoveFrom(orangeBox1);
         System.out.println("В коробке с апельсинами 1 лежит " + orangeBox1.getCount() + " апельсинов, вес "
                 + orangeBox1.getWeight());
         System.out.println("В коробке с апельсинами 2 лежит " + orangeBox2.getCount() + " апельсинов, вес "
@@ -97,7 +97,7 @@ public class Main {
 
         System.out.println("Пересыпаем все золотые яблоки в коробку с яблоками 1");
 
-        if(appleBox1.Move(goldenAppleBox1)){
+        if(appleBox1.MoveFrom(goldenAppleBox1)){
             System.out.println("В коробке с яблоками 1 лежит " + appleBox1.getCount() + " яблоками, вес "
                     + appleBox1.getWeight());
             System.out.println("В коробке с золотыми яблоками 2 лежит " + goldenAppleBox1.getCount() +
@@ -113,7 +113,9 @@ public class Main {
 
         System.out.println("Пересыпаем все яблоки 3 в коробку с золотыми яблоками 2");
 
-        if(goldenAppleBox2.Move(appleBox3)){
+        /*
+        // error
+        if(goldenAppleBox2.MoveFrom(appleBox3)){
             System.out.println("В коробке с яблоками 3 лежит " + appleBox3.getCount() + " яблоками, вес "
                     + appleBox3.getWeight());
             System.out.println("В коробке с золотыми яблоками 2 лежит " + goldenAppleBox2.getCount() +
@@ -121,7 +123,19 @@ public class Main {
         }
         else
             System.out.println("Пересыпать яблоки в коробку с золотыми не удалось");
+        */
+    }
 
+    public <T>boolean Swap(int i, int j, T ... mas){
+        if(i >= 0 && i < mas.length && j >= 0 && j < mas.length && mas != null) {
+            T buf;
+            buf = mas[i];
+            mas[j] = mas[i];
+            mas[j] = buf;
+            return true;
+        }
+        else
+            return false;
     }
 
 }

@@ -1,29 +1,20 @@
 package homework10;
 
-public class Box<T> {
+public class Box<T extends Fruit> {
     private T[] mas;
     private double weight;
 
     public Box(T[] mas) {
-        this.mas = mas;
-
-        // how can I do this?
-        /*
-        for (int i = 0; i < mas.length; i++) {
-            mas[i] = new T();
+        if(mas != null){
+            this.mas = mas;
+            for (int i = 0; i < mas.length; i++) {
+                weight += mas[i].getWeight();
+            }
         }
-        */
-
-        if(mas[0] instanceof Orange) // is it a bad practice? but how?
-            weight = mas.length * 1.5;
-        else if (mas[0] instanceof Apple)
-            weight = mas.length;
-        else
-            weight = 0;
     }
 
-    public boolean Compare(Box comparedItem) {
-        return this.weight == comparedItem.getWeight();
+    public boolean Compare(Box<?> comparedItem) {
+        return this.weight == comparedItem.getWeight() && comparedItem != null;
     }
 
     public void Reduce() {
@@ -46,16 +37,12 @@ public class Box<T> {
         return weight;
     }
 
-    public boolean Move(Box anotherBox) {
-        if((anotherBox.getItems()[0] instanceof GoldenApple && mas[0] instanceof Apple) ||
-                (anotherBox.getItems().getClass() == mas.getClass())) {
+    public boolean MoveFrom(Box<? extends T> anotherBox) {
+            //I don't know how to do correct
             T[] newMas = (T[]) new Object[mas.length + anotherBox.getCount()]; // is it correct?
             mas = newMas;
             weight += anotherBox.getWeight();
             anotherBox.Reduce();
             return true;
-        }
-        else
-            return false;
     }
 }

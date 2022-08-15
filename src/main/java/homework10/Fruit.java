@@ -1,4 +1,7 @@
 package homework10;
 
-public class Fruit {
+public abstract class Fruit {
+    public double getWeight() {
+        return 0;
+    }
 }
